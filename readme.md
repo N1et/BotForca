@@ -1,6 +1,6 @@
 # IRC BOT FORCA
 ###### python2
-ESSE SCRIPT AINDA ESTÁ EM DESENVOLVIMENTO
+ESSE SCRIPT AINDA ESTÁ EM DESENVOLVIMENTO <br>
 Se você ta com muito tempo livre e quer jogar uma forca com seus amigos no irc, seus problemas acabaram NOW. (Não sei se todos)
 
 Formando esses três script vc forma as meninas super poderosas.
