@@ -15,7 +15,7 @@ class ircbot(object):
 
 	def change_nick(self, nick):
 		socket = self.socket
-		cmd = "NICK %s\n" %nickmpkpk.hukfj
+		cmd = "NICK %s\n" %nick
 		socket.send(cmd)
 		sleep(1)
 
