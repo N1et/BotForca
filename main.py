@@ -3,11 +3,18 @@ import ssl
 from classbot import *
 from time import sleep
 from forca import Forca
-server = "irc.cyberguerrilla.org"
-port = 6697 # ssl
-channelirc = "#lala"
+import sys
+try:
+    server = sys.argv[1]
+    port = int(sys.argv[2])
+    channelirc = sys.argv[3]
+    wordgame = sys.argv[4]
+except:
+    print "Example: "+sys.argv[0]+" irc.server.org 6667 canaldentario abelha"
+    sys.exit()
+
 sock = socket(AF_INET, SOCK_STREAM)
-sock = ssl.wrap_socket(sock)
+sock = ssl.wrap_socket(sock) #ssl
 sock.connect((server, port))
 ircbot = ircbot(sock)
 ircbot.set_cred("mamacita")
@@ -19,7 +26,7 @@ while 1:
         sleep(2)
         break
 ircbot.join(channelirc)
-party = Forca("carro")
+party = Forca(wordgame)
 msg = party.re_word()
 ircbot.sendmsg("%s %i Letras" %(party.re_word(), party.letter_len))
 while 1:
