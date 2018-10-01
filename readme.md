@@ -1,4 +1,5 @@
 # IRC BOT FORCA
+###### python2
 Se você ta com muito tempo livre e quer jogar uma forca com seus amigos no irc, seus problemas acabaram NOW. (Não sei se todos)
 
 ## Classbot
