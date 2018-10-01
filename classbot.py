@@ -59,3 +59,11 @@ class ircbot(object):
 		socket = self.socket
 		cmd = ("PRIVMSG %s %s\n" %(channel, text))
 		socket.send(cmd)
+        def pong(self, text):
+            socket = self.socket
+            pong = text.split()[1]
+            socket.send("PONG "+pong+"\n")
+            sleep(2)
+
+            
+

@@ -3,7 +3,7 @@ import ssl
 from classbot import *
 from time import sleep
 from forca import Forca
-server = ""
+server = "irc.cyberguerrilla.org"
 port = 6697 # ssl
 channelirc = "#lala"
 sock = socket(AF_INET, SOCK_STREAM)
@@ -14,8 +14,7 @@ ircbot.set_cred("mamacita")
 while 1:
     data = sock.recv(1024)
     if data.find("PING") != -1:
-        pong = data.split()[1]
-        sock.send("PONG "+pong+"\n")
+        ircbot.pong(data)
         print "Ping respondido!"
         sleep(2)
         break
