@@ -41,12 +41,6 @@ while 1:
         msg = msg.split(":", 1)[1].replace(" ", "").lower()
         msg = msg[0:-2]
         if not party.letter(msg):
-                #ircbot.sendmsg(nick+": Nao possui essa letra")
-                choiceslist = ["voce ta vendo essa letra aqui ? palhaco", "uma porta eh mais inteligente que voce", "Animal!", ""]
-                choice = random.choice(choiceslist)
-                if choice != "":
-                    ircbot.sendmsg(choice)
-
                 pass
         else:
             fullword = party.re_word()
