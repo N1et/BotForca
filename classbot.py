@@ -46,9 +46,9 @@ class ircbot(object):
 		if data.find("PRIVMSG") == -1:
 			return "",""
 		try:
-			data = data.split("!")
-			nick = data[0].split(":")[1]
-			msg = data[1].split(":")[1]
+			data = data.split("!",1)
+			nick = data[0].split(":",1)[1]
+			msg = data[1].split(":", 1)[1]
 			return nick, msg
 		except:
 			return "",""

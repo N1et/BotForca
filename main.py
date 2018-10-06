@@ -4,6 +4,8 @@ from classbot import *
 from time import sleep
 from forca import Forca
 import sys
+import random
+
 try:
     server = sys.argv[1]
     port = int(sys.argv[2])
@@ -28,19 +30,34 @@ while 1:
 ircbot.join(channelirc)
 party = Forca(wordgame)
 msg = party.re_word()
+ircbot.sendmsg("ch: LETRA")
+ircbot.sendmsg("word: PALAVRA")
 ircbot.sendmsg("%s %i Letras" %(party.re_word(), party.letter_len))
 while 1:
     nick, msg = ircbot.recv(1024)
     if not (nick and msg):
         continue
-    if party.word == party.str_adiv: #essa parte ta com erro, dps resolvo
-        ircbot.sendmsg("Ninguem acertou")
-        break
-    if not party.letter(msg[0:-2]):
-        ircbot.sendmsg(nick+": Nao possui essa letra")
-        continue
-    emword = party.re_word()
-    ircbot.sendmsg(emword)
+    if msg.startswith("ch:"):
+        msg = msg.split(":", 1)[1].replace(" ", "").lower()
+        msg = msg[0:-2]
+        if not party.letter(msg):
+                #ircbot.sendmsg(nick+": Nao possui essa letra")
+                choiceslist = ["voce ta vendo essa letra aqui ? palhaco", "uma porta eh mais inteligente que voce", "Animal!", ""]
+                choice = random.choice(choiceslist)
+                if choice != "":
+                    ircbot.sendmsg(choice)
 
+                pass
+        else:
+            fullword = party.re_word()
+            ircbot.sendmsg(fullword)
+    elif msg.startswith("word:"):
+        msg = msg.split(":", 1)[1].replace(" ", "").lower()
+        if not party.word_kick(msg):
+            #ircbot.sendmsg(nick+": Essa Palavra nao existe")
+            pass
+        else:
+            fullword = party.re_word()
+            ircbot.sendmsg(fullword)
 
     
