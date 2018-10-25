@@ -8,4 +8,7 @@ Formando esses três script vc forma as meninas super poderosas.
 ## WARNING
 Na linha 14, do script main.py, você vai se deparar com uma resposta de ping pura. Isso porque o irc, no qual eu testei o script, necessitava que vc desse ping logo após setar o NICK. Dependendo do server isso muda, ou seja, comente a linha se precisar. 
 
-Exemple: main.py irc.server.org 6667 canaldentario abelha
+Example:
+```
+main.py irc.server.org 6667 canaldentario abelha
+```
